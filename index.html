@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Educational Platform - Science, Mathematics, and Commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50c878;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --card-color: #ffffff;
+            --hover-color: #e8f0fe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        header {
+            background-color: var(--card-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background-color: var(--card-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: var(--hover-color);
+        }
+
+        .course-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .course-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--card-color);
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: var(--primary-color);
+        }
+
+        .chapter-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .chapter-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+
+        .chapter-list li:hover {
+            background-color: var(--hover-color);
+            padding-left: 10px;
+        }
+
+        .chapter-list li:last-child {
+            border-bottom: none;
+        }
+
+        .video-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .video-link:hover {
+            background-color: #3a7bc8;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">EduPlatform</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Welcome to Our Modern Educational Platform</h1>
+            <p>Discover a world of knowledge in Science, Mathematics, and Commerce at your fingertips.</p>
+        </section>
+
+        <section id="courses">
+            <h2>Our Courses</h2>
+            <div class="courses">
+                <div class="course-card" id="physics-card">
+                    <h3>Physics</h3>
+                    <p>Explore the fundamental laws governing the universe.</p>
+                    <a href="https://www.youtube.com/live/29RINLm-G3Q?feature=shared" class="video-link">Watch Video</a>
+                </div>
+                <div class="course-card" id="chemistry-card">
+                    <h3>Chemistry</h3>
+                    <p>Delve into the world of atoms, molecules, and chemical reactions.</p>
+                    <a href="https://www.youtube.com/live/y-PMx987Q_I?feature=shared" class="video-link">Watch Video</a>
+                </div>
+                <div class="course-card" id="mathematics-card">
+                    <h3>Mathematics</h3>
+                    <p>Discover the beauty of numbers, patterns, and abstract structures.</p>
+                    <a href="https://www.youtube.com/live/jS_dmSm-o1c?feature=shared" class="video-link">Watch Video</a>
+                </div>
+                <div class="course-card">
+                    <h3>Biology</h3>
+                    <p>Uncover the mysteries of life and living organisms.</p>
+                    <a href="https://www.youtube.com/live/acZpClySY8M?feature=shared" class="video-link">Watch Video</a>
+                </div>
+                <div class="course-card">
+                    <h3>Accounting</h3>
+                    <p>Master the language of business and financial reporting.</p>
+                    <a href="https://youtu.be/oa76Ql3VecM?list=PLAhomlwJUwWbYxyYJim7CQyFJE0bUqdof" class="video-link">Watch Video</a>
+                </div>
+                <div class="course-card">
+                    <h3>Economics</h3>
+                    <p>Understand the principles that drive global markets and economies.</p>
+                    <a href="https://youtu.be/-EzFQu3kO0c?feature=shared" class="video-link">Watch Video</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="chapterModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <h3>11th Standard</h3>
+            <ul class="chapter-list" id="chapters11"></ul>
+            <h3>12th Standard</h3>
+            <ul class="chapter-list" id="chapters12"></ul>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("chapterModal");
+        const span = document.getElementsByClassName("close")[0];
+        const modalTitle = document.getElementById("modalTitle");
+        const chapters11 = document.getElementById("chapters11");
+        const chapters12 = document.getElementById("chapters12");
+
+        const courses = {
+            "physics": {
+                "11": ["Motion in a Plane", "Laws of Motion", "Work, Energy and Power", "Rotational Motion", "Gravitation", "Properties of Bulk Matter", "Thermodynamics", "Oscillations", "Waves"],
+                "12": ["Electrostatics", "Current Electricity", "Magnetic Effects of Current", "Magnetism and Matter", "Electromagnetic Induction", "Alternating Current", "Electromagnetic Waves", "Optics", "Dual Nature of Matter and Radiation", "Atoms and Nuclei", "Electronic Devices"]
+            },
+            "chemistry": {
+                "11": ["Some Basic Concepts of Chemistry", "Structure of Atom", "Classification of Elements and Periodicity in Properties", "Chemical Bonding and Molecular Structure", "States of Matter", "Thermodynamics", "Equilibrium", "Redox Reactions", "Hydrogen", "The s-Block Elements", "The p-Block Elements", "Organic Chemistry: Some Basic Principles and Techniques", "Hydrocarbons"],
+                "12": ["Solid State", "Solutions", "Electrochemistry", "Chemical Kinetics", "Surface Chemistry", "General Principles and Processes of Isolation of Elements", "The p-Block Elements", "The d- and f-Block Elements", "Coordination Compounds", "Haloalkanes and Haloarenes", "Alcohols, Phenols and Ethers", "Aldehydes, Ketones and Carboxylic Acids", "Amines", "Biomolecules", "Polymers", "Chemistry in Everyday Life"]
+            },
+            "mathematics": {
+                "11": ["Sets", "Relations and Functions", "Trigonometric Functions", "Principle of Mathematical Induction", "Complex Numbers and Quadratic Equations", "Linear Inequalities", "Permutations and Combinations", "Binomial Theorem", "Sequences and Series", "Straight Lines", "Conic Sections", "Introduction to Three-dimensional Geometry", "Limits and Derivatives", "Mathematical Reasoning", "Statistics", "Probability"],
+                "12": ["Relations and Functions", "Inverse Trigonometric Functions", "Matrices", "Determinants", "Continuity and Differentiability", "Applications of Derivatives", "Integrals", "Applications of Integrals", "Differential Equations", "Vector Algebra", "Three-dimensional Geometry", "Linear Programming", "Probability"]
+            }
+        };
+
+        function openModal(course) {
+            modalTitle.textContent = course.charAt(0).toUpperCase() + course.slice(1);
+            chapters11.innerHTML = "";
+            chapters12.innerHTML = "";
+            
+            courses[course]["11"].forEach(chapter => {
+                const li = document.createElement("li");
+                li.textContent = chapter;
+                chapters11.appendChild(li);
+            });
+
+            courses[course]["12"].forEach(chapter => {
+                const li = document.createElement("li");
+                li.textContent = chapter;
+                chapters12.appendChild(li);
+            });
+
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById("physics-card").addEventListener("click", () => openModal("physics"));
+        document.getElementById("chemistry-card").addEventListener("click", () => openModal("chemistry"));
+        document.getElementById("mathematics-card").addEventListener("click", () => openModal("mathematics"));
+
+        document.querySelectorAll('.video-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent the modal from opening when clicking the link
+            });
+        });
+    </script>
+</body>
+</html>
